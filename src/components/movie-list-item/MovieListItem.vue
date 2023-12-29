@@ -1,9 +1,9 @@
 <template>
     <div>
         <!-- Phase One -->
-        <li class="list-group-item d-flex justify-content-between">
-            <span class="list-group-item-label">Iron Man (2008)</span>
-            <input type="number" class="list-group-item-input" defaultValue="0"  name="" id="">
+        <li class="list-group-item d-flex justify-content-between" :class='[{like: movie.like}, {favourite: movie.favourite}]'>
+            <span class="list-group-item-label">{{ movie.name }}</span>
+            <input type="number" class="list-group-item-input" :value="movie.viewers" name="" id="">
             <div class="d-flex justify-content-center align-items-center">
                 <button type="button" class="btn-cookie btn-sm ">
                     <i class="fas fa-cookie"></i>
@@ -22,7 +22,13 @@
 </template>
 <script>
 export default {
-    
+    props: {
+        movie: {
+            type: Object,
+            required: true
+
+        }
+    }
 }
 </script>
 <style scoped>
@@ -87,7 +93,7 @@ export default {
 
     .list-group-item.favourite .list-group-item-label,
     .list-group-item.favourite .list-group-item-input {
-        color: #ffd700;
+        color: #e09f3e;
     }
 
-</style>
+</style> 
